@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "routes": [
+    {"path": "*/admin/glitter-connect", "layout": "overview", "auth_required": true, "meta": {"title": "$t:glitter-connect.admin.overview.title", "permission": "glitter-connect.connect.read"}},
+    {"path": "*/admin/glitter-connect/connections", "layout": "connections", "auth_required": true, "meta": {"title": "$t:glitter-connect.admin.connections.title", "permission": "glitter-connect.connect.read"}},
+    {"path": "*/admin/glitter-connect/endpoints", "layout": "endpoints", "auth_required": true, "meta": {"title": "$t:glitter-connect.admin.endpoints.title", "permission": "glitter-connect.connect.read"}},
+    {"path": "*/admin/glitter-connect/subscriptions", "layout": "subscriptions", "auth_required": true, "meta": {"title": "$t:glitter-connect.admin.subscriptions.title", "permission": "glitter-connect.connect.read"}},
+    {"path": "*/admin/glitter-connect/events", "layout": "events", "auth_required": true, "meta": {"title": "$t:glitter-connect.admin.events.title", "permission": "glitter-connect.connect.read"}},
+    {"path": "*/admin/glitter-connect/deliveries", "layout": "deliveries", "auth_required": true, "meta": {"title": "$t:glitter-connect.admin.deliveries.title", "permission": "glitter-connect.connect.read"}},
+    {"path": "*/admin/glitter-connect/logs", "layout": "deliveries", "auth_required": true, "meta": {"title": "$t:glitter-connect.admin.deliveries.title", "permission": "glitter-connect.connect.read"}},
+    {"path": "*/admin/glitter-connect/settings", "layout": "settings", "auth_required": true, "meta": {"title": "$t:glitter-connect.admin.settings.title", "permission": "glitter-connect.connect.read"}}
+  ]
+}

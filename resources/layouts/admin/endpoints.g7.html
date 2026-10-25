@@ -1,0 +1,45 @@
+<layout name="endpoints" version="1.0.0" extends="_admin_base">
+  <meta title="$t:glitter-connect.admin.endpoints.title"/>
+  <data-source id="endpoints" type="api" endpoint="/api/modules/glitter-connect/admin/endpoints" method="GET" :auto_fetch="true" :auth_required="true"/>
+  <slot name="content">
+    <div class="admin-page-content-responsive-fluid glitter-connect-shell">
+      <page-header data-type="composite" title="$t:glitter-connect.admin.endpoints.title" description="$t:glitter-connect.admin.endpoints.description"/>
+      <include src="partials/_navigation.g7.html"/>
+      <section class="admin-card">
+        <h2 class="section-heading">$t:glitter-connect.admin.endpoints.create</h2>
+        <p class="text-body mb-4">$t:glitter-connect.admin.endpoints.create_v1_notice</p>
+        <form data-glitter-connect-form data-endpoint="/admin/endpoints" class="glitter-connect-form">
+          <label><span>$t:glitter-connect.admin.endpoints.name</span><input name="name" required maxlength="120"/></label>
+          <label><span>$t:glitter-connect.admin.endpoints.connection_id</span><input name="connection_id" type="number" min="1"/></label>
+          <button type="submit">$t:glitter-connect.common.create</button>
+          <output aria-live="polite"></output>
+        </form>
+      </section>
+      <section class="admin-card">
+        <h2 class="section-heading">$t:glitter-connect.admin.endpoints.sender_guide</h2>
+        <p class="text-body">$t:glitter-connect.admin.endpoints.inbound_url_note</p>
+        <h3 class="section-heading mt-4">$t:glitter-connect.admin.endpoints.common_headers</h3>
+        <p class="text-body">$t:glitter-connect.admin.endpoints.common_headers_description</p>
+        <h3 class="section-heading mt-4">$t:glitter-connect.admin.endpoints.v0_title</h3>
+        <p class="text-body">$t:glitter-connect.admin.endpoints.v0_description</p>
+        <h3 class="section-heading mt-4">$t:glitter-connect.admin.endpoints.v1_title</h3>
+        <p class="text-body">$t:glitter-connect.admin.endpoints.v1_description</p>
+        <p class="text-body mt-2"><code>glitter-connect-v1\n{timestamp}\n{Idempotency-Key}\n{raw HTTP body}</code></p>
+        <p class="text-body mt-2">$t:glitter-connect.admin.endpoints.v1_retries</p>
+      </section>
+      <section class="admin-card">
+        <div data-each="item in {{endpoints?.data?.data ?? []}}" class="glitter-connect-data-row">
+          <strong>{{item.name}}</strong>
+          <span>$t:glitter-connect.admin.endpoints.signature_version</span>
+          <code>{{item.signature_version}}</code>
+          <code>{{item.endpoint_key}}</code>
+          <span>$t:glitter-connect.admin.endpoints.inbound_url</span>
+          <code>/api/modules/glitter-connect/inbound/{{item.endpoint_key}}</code>
+          <span>{{item.status}}</span>
+          <button type="button" data-glitter-connect-action data-method="PATCH" data-endpoint="/admin/endpoints/{{item.id}}">$t:glitter-connect.common.manage</button>
+        </div>
+        <empty-state data-type="composite" data-if="{{(endpoints?.data?.data ?? []).length === 0}}" iconName="plug" title="$t:glitter-connect.common.empty" description="$t:glitter-connect.admin.endpoints.empty_description"/>
+      </section>
+    </div>
+  </slot>
+</layout>

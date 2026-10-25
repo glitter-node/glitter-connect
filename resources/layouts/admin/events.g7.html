@@ -1,0 +1,5 @@
+<layout name="events" version="1.0.0" extends="_admin_base">
+  <meta title="$t:glitter-connect.admin.events.title"/>
+  <data-source id="events" type="api" endpoint="/api/modules/glitter-connect/admin/events" method="GET" :auto_fetch="true" :auth_required="true"/>
+  <slot name="content"><div class="admin-page-content-responsive-fluid glitter-connect-shell"><page-header data-type="composite" title="$t:glitter-connect.admin.events.title" description="$t:glitter-connect.admin.events.description"/><include src="partials/_navigation.g7.html"/><section class="admin-card"><div data-each="item in {{events?.data?.data ?? []}}" class="glitter-connect-data-row"><strong>{{item.event_type}}</strong><span>{{item.source}}</span><span>{{item.received_at}}</span></div><empty-state data-type="composite" data-if="{{(events?.data?.data ?? []).length === 0}}" iconName="bolt" title="$t:glitter-connect.common.empty" description="$t:glitter-connect.admin.events.empty_description"/></section></div></slot>
+</layout>

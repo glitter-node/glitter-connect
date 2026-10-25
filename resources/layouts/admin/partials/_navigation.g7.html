@@ -1,0 +1,13 @@
+<partial>
+<nav class="glitter-connect-nav" aria-label="$t:glitter-connect.admin.navigation">
+  <ul>
+    <li><a href="/admin/glitter-connect" data-if="{{route.path === '/admin/glitter-connect'}}" aria-current="page">$t:glitter-connect.admin.overview.title</a><a href="/admin/glitter-connect" data-if="{{route.path !== '/admin/glitter-connect'}}">$t:glitter-connect.admin.overview.title</a></li>
+    <li><a href="/admin/glitter-connect/connections" data-if="{{route.path === '/admin/glitter-connect/connections'}}" aria-current="page">$t:glitter-connect.admin.connections.title</a><a href="/admin/glitter-connect/connections" data-if="{{route.path !== '/admin/glitter-connect/connections'}}">$t:glitter-connect.admin.connections.title</a></li>
+    <li><a href="/admin/glitter-connect/endpoints" data-if="{{route.path === '/admin/glitter-connect/endpoints'}}" aria-current="page">$t:glitter-connect.admin.endpoints.title</a><a href="/admin/glitter-connect/endpoints" data-if="{{route.path !== '/admin/glitter-connect/endpoints'}}">$t:glitter-connect.admin.endpoints.title</a></li>
+    <li><a href="/admin/glitter-connect/subscriptions" data-if="{{route.path === '/admin/glitter-connect/subscriptions'}}" aria-current="page">$t:glitter-connect.admin.subscriptions.title</a><a href="/admin/glitter-connect/subscriptions" data-if="{{route.path !== '/admin/glitter-connect/subscriptions'}}">$t:glitter-connect.admin.subscriptions.title</a></li>
+    <li><a href="/admin/glitter-connect/events" data-if="{{route.path === '/admin/glitter-connect/events'}}" aria-current="page">$t:glitter-connect.admin.events.title</a><a href="/admin/glitter-connect/events" data-if="{{route.path !== '/admin/glitter-connect/events'}}">$t:glitter-connect.admin.events.title</a></li>
+    <li><a href="/admin/glitter-connect/deliveries" data-if="{{route.path === '/admin/glitter-connect/deliveries' || route.path === '/admin/glitter-connect/logs'}}" aria-current="page">$t:glitter-connect.admin.deliveries.title</a><a href="/admin/glitter-connect/deliveries" data-if="{{route.path !== '/admin/glitter-connect/deliveries' && route.path !== '/admin/glitter-connect/logs'}}">$t:glitter-connect.admin.deliveries.title</a></li>
+    <li><a href="/admin/glitter-connect/settings" data-if="{{route.path === '/admin/glitter-connect/settings'}}" aria-current="page">$t:glitter-connect.admin.settings.title</a><a href="/admin/glitter-connect/settings" data-if="{{route.path !== '/admin/glitter-connect/settings'}}">$t:glitter-connect.admin.settings.title</a></li>
+  </ul>
+</nav>
+</partial>

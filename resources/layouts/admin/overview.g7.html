@@ -1,0 +1,23 @@
+<layout name="overview" version="1.0.0" extends="_admin_base">
+  <meta title="$t:glitter-connect.admin.overview.title"/>
+  <data-source id="overview" type="api" endpoint="/api/modules/glitter-connect/admin/overview" method="GET" :auto_fetch="true" :auth_required="true"/>
+  <slot name="content">
+    <div class="admin-page-content-responsive-fluid glitter-connect-shell" data-glitter-connect="overview">
+      <page-header data-type="composite" title="$t:glitter-connect.admin.overview.title" description="$t:glitter-connect.admin.overview.description"/>
+      <include src="partials/_navigation.g7.html"/>
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <stat-card data-type="composite" value="{{overview?.data?.delivered ?? 0}}" label="$t:glitter-connect.admin.overview.delivered" iconName="check"/>
+        <stat-card data-type="composite" value="{{overview?.data?.pending ?? 0}}" label="$t:glitter-connect.admin.overview.pending" iconName="clock"/>
+        <stat-card data-type="composite" value="{{overview?.data?.retry_scheduled ?? 0}}" label="$t:glitter-connect.admin.overview.retry" iconName="redo"/>
+        <stat-card data-type="composite" value="{{overview?.data?.dead_letter ?? 0}}" label="$t:glitter-connect.admin.overview.dead_letter" iconName="exclamation-triangle"/>
+      </div>
+      <section class="admin-card">
+        <h2 class="section-heading">$t:glitter-connect.admin.overview.recent_errors</h2>
+        <empty-state data-type="composite" data-if="{{(overview?.data?.recent_errors ?? []).length === 0}}" iconName="check" title="$t:glitter-connect.admin.overview.no_errors" description="$t:glitter-connect.admin.overview.no_errors_description"/>
+        <div data-each="item in {{overview?.data?.recent_errors ?? []}}" class="glitter-connect-error-row">
+          <span>#{{item.id}}</span><span>{{item.response_code ?? '—'}}</span><span>{{item.last_error}}</span><time>{{item.updated_at}}</time>
+        </div>
+      </section>
+    </div>
+  </slot>
+</layout>
